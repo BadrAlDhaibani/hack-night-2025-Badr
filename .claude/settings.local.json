@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(yarn list:*)",
+      "Bash(cat:*)",
+      "Bash(yarn add styled-components)",
+      "Bash(yarn add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
