@@ -9,6 +9,7 @@ export interface WeatherData {
     icon: string;
     location: string;
     isDay: boolean;
+    localTime: string;
 }
 
 export interface OutfitRecommendation {

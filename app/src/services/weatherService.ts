@@ -27,7 +27,8 @@ export async function fetchWeather(): Promise<WeatherData> {
       precipitation: data.current.precip_mm,
       icon: data.current.condition.icon,
       location: data.location.name,
-      isDay: data.current.is_day === 1
+      isDay: data.current.is_day === 1,
+      localTime: data.location.localtime
     };
   } catch (error) {
     console.error('Error fetching weather:', error);

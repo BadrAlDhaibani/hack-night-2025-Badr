@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { fetchWeather } from './services/weatherService'
 import { getOutfitRecommendation } from './services/aiService'
 import type { WeatherData, OutfitRecommendation } from './types'
-import { LoadingScreen } from './components/LoadingScreen'
-import { ErrorScreen } from './components/ErrorScreen'
-import { WeatherDisplay } from './components/WeatherDisplay'
+import { LoadingScreen } from './components/loadingScreen/LoadingScreen'
+import { ErrorScreen } from './components/errorScreen/ErrorScreen'
+import { WeatherDisplay } from './components/weatherDisplay/WeatherDisplay'
 
 const AppContainer = styled.div<{ $backgroundColor: string }>`
   height: 100vh;
