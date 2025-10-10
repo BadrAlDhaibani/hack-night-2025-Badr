@@ -8,17 +8,14 @@ interface TemperatureDisplayProps {
 }
 
 export function TemperatureDisplay({ temperature, feelsLike, condition, icon }: TemperatureDisplayProps) {
-  const fahrenheit = Math.round((temperature * 9/5) + 32);
-  const feelsLikeFahrenheit = Math.round((feelsLike * 9/5) + 32);
-
   return (
     <S.Container>
       <S.TemperatureWrapper>
         <S.TemperatureSection>
-          <S.TempValue>{fahrenheit}°</S.TempValue>
+          <S.TempValue>{Math.round(temperature)}°</S.TempValue>
           <S.TempUnit>F</S.TempUnit>
         </S.TemperatureSection>
-        <S.FeelsLikeText>Feels like {feelsLikeFahrenheit}°F</S.FeelsLikeText>
+        <S.FeelsLikeText>Feels like {Math.round(feelsLike)}°F</S.FeelsLikeText>
       </S.TemperatureWrapper>
       <S.ConditionSection>
         <S.WeatherIcon src={`https:${icon}`} alt={condition} />

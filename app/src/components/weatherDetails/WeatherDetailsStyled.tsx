@@ -17,14 +17,14 @@ export const DetailItem = styled.div`
 `;
 
 export const Icon = styled.img`
-  width: clamp(30px, 5vw, 50px);
-  height: clamp(30px, 5vw, 50px);
+  width: clamp(36px, 5vw, 50px);
+  height: clamp(36px, 5vw, 50px);
   filter: brightness(0) invert(1);
   opacity: 0.9;
 `;
 
 export const DetailLabel = styled.span`
-  font-size: clamp(0.8rem, 2vw, 1.5rem);
+  font-size: clamp(0.9rem, 2vw, 1.5rem);
   opacity: 0.8;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
@@ -32,7 +32,7 @@ export const DetailLabel = styled.span`
 `;
 
 export const DetailValue = styled.span`
-  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  font-size: clamp(1.4rem, 3vw, 2.5rem);
   font-weight: 600;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
   color: white;

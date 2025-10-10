@@ -16,10 +16,10 @@ export async function fetchWeather(): Promise<WeatherData> {
     });
 
     const data = response.data;
-
+    
     return {
-      temperature: data.current.temp_c,
-      feelsLike: data.current.feelslike_c,
+      temperature: data.current.temp_f,
+      feelsLike: data.current.feelslike_f,
       condition: data.current.condition.text,
       description: data.current.condition.text,
       humidity: data.current.humidity,

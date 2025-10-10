@@ -24,6 +24,7 @@ function App() {
   const [outfit, setOutfit] = useState<OutfitRecommendation | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
 
   const getBackgroundColor = (weather: WeatherData | null) => {
     if (!weather) return '#1a1a1a'
@@ -63,6 +64,7 @@ function App() {
         const outfitData = await getOutfitRecommendation(weatherData)
         setOutfit(outfitData)
 
+        setLastUpdate(new Date())
         setError(null)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred')
@@ -73,8 +75,8 @@ function App() {
 
     loadData()
 
-    // Refresh every 30 minutes
-    const interval = setInterval(loadData, 30 * 60 * 1000)
+    // Refresh every 5 minutes
+    const interval = setInterval(loadData, 5 * 60 * 1000)
     return () => clearInterval(interval)
   }, [])
 
@@ -85,7 +87,7 @@ function App() {
       {loading && <LoadingScreen />}
       {error && <ErrorScreen message={error} />}
       {!loading && !error && weather && outfit && (
-        <WeatherDisplay weather={weather} outfit={outfit} />
+        <WeatherDisplay weather={weather} outfit={outfit} lastUpdate={lastUpdate} />
       )}
     </AppContainer>
   )
