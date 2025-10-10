@@ -16,12 +16,12 @@ Weather conditions:
 - Wind: ${Math.round(weather.windSpeed)} km/h
 
 Instructions:
-- Provide ONLY a single sentence listing specific clothing items
-- Be serious and practical - focus on comfort and protection from weather
-- Consider temperature, condition, and wind when recommending layers
-- Format: List items separated by commas (e.g., "Light jacket, t-shirt, and jeans")
-- Do NOT include any explanations, humor, emojis, or extra commentary
-- Do NOT include greetings or conclusions
+- Provide ONLY 5-10 words maximum
+- List specific clothing items separated by commas
+- Be practical - focus on essential items for the weather
+- Example format: "Jacket, sweater, warm pants, gloves, hat"
+- Do NOT exceed 10 words
+- Do NOT include explanations, humor, emojis, or extra words
 
 Recommendation:`;
 
