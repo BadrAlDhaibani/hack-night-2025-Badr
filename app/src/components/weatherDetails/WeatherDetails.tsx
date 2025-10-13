@@ -4,13 +4,12 @@ import windIcon from '../../assets/wind-svgrepo-com.svg';
 import rainIcon from '../../assets/rain-svgrepo-com.svg';
 
 interface WeatherDetailsProps {
-  feelsLike: number;
   humidity: number;
   windSpeed: number;
   precipitation: number;
 }
 
-export function WeatherDetails({ feelsLike, humidity, windSpeed, precipitation }: WeatherDetailsProps) {
+export function WeatherDetails({ humidity, windSpeed, precipitation }: WeatherDetailsProps) {
   return (
     <S.Container>
       <S.DetailItem>

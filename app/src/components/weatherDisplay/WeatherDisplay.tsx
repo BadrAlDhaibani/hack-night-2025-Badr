@@ -35,7 +35,6 @@ export function WeatherDisplay({ weather, outfit, lastUpdate }: WeatherDisplayPr
         icon={weather.icon}
       />
       <WeatherDetails
-        feelsLike={weather.feelsLike}
         humidity={weather.humidity}
         windSpeed={weather.windSpeed}
         precipitation={weather.precipitation}
