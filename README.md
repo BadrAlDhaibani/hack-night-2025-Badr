@@ -66,3 +66,8 @@ Build an app for Screens, Envoy's upcoming digital signage platform.
 - Music: Play a music with cool on-screen graphics
 - Mood board: Live office sentiment via reactions (smiley/frown counts)
 - AI art: Generate a new AI image every day as an art wall
+
+
+
+<img width="1274" height="918" alt="image" src="https://github.com/user-attachments/assets/fdd81e01-71da-4576-98dc-c3d8d93638ac" />
+
