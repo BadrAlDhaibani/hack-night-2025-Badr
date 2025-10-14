@@ -4,7 +4,8 @@
       "Bash(yarn list:*)",
       "Bash(cat:*)",
       "Bash(yarn add styled-components)",
-      "Bash(yarn add:*)"
+      "Bash(yarn add:*)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []

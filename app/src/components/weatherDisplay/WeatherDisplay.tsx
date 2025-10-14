@@ -41,7 +41,7 @@ export function WeatherDisplay({ weather, outfit, lastUpdate }: WeatherDisplayPr
       />
       <OutfitRecommendation text={outfit.text} />
       <S.Footer>
-        Updates every 5 minutes • Last updated at {formatUpdateTime(lastUpdate)}
+        <span className="hide-mobile">Updates every 5 minutes • </span>Last updated at {formatUpdateTime(lastUpdate)}
       </S.Footer>
     </S.Container>
   );

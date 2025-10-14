@@ -1,27 +1,63 @@
 import styled from 'styled-components';
 
+/**
+ * Outfit Recommendation Styled Components
+ * Displays AI-generated clothing suggestions in a glass-morphism card
+ */
+
+/** Glassmorphic container with backdrop blur effect */
 export const Container = styled.div`
-  padding: clamp(1rem, 2vw, 2rem);
+  padding: calc(var(--spacing-unit) * 4);
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: clamp(0.8rem, 1.5vw, 1.5rem);
-  max-width: 900px;
+  backdrop-filter: blur(var(--spacing-2-5));  /* 10px */
+  border-radius: var(--spacing-4);  /* 16px */
+  max-width: 56.25rem;  /* 900px */
   margin-left: auto;
   margin-right: auto;
   flex-shrink: 0;
+
+  @media (min-width: 768px) {
+    padding: calc(var(--spacing-unit) * 5);
+    border-radius: var(--spacing-5);  /* 20px */
+  }
+
+  @media (min-width: 1366px) {
+    padding: calc(var(--spacing-unit) * 6);
+  }
 `;
 
+/** Section title for outfit recommendations */
 export const Title = styled.h3`
-  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
-  margin-bottom: clamp(0.5rem, 1vh, 1rem);
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  font-size: var(--font-size-2xl);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  text-shadow: 0.0625em 0.0625em 0.25em rgba(0, 0, 0, 0.3);  /* Responsive to font size */
   color: white;
+
+  @media (min-width: 768px) {
+    font-size: var(--font-size-3xl);
+    margin-bottom: calc(var(--spacing-unit) * 2.5);
+  }
+
+  @media (min-width: 1366px) {
+    font-size: var(--font-size-4xl);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+  }
 `;
 
+/** AI-generated outfit recommendation text */
 export const RecommendationText = styled.p`
-  font-size: clamp(1.1rem, 2.5vw, 2rem);
-  line-height: 1.4;
+  font-size: var(--font-size-base);
+  line-height: 1.625;
   opacity: 0.95;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.0625em 0.0625em 0.25em rgba(0, 0, 0, 0.3);  /* Responsive to font size */
   color: white;
+
+  @media (min-width: 768px) {
+    font-size: var(--font-size-lg);
+    line-height: 1.4;
+  }
+
+  @media (min-width: 1366px) {
+    font-size: var(--font-size-2xl);
+  }
 `;
