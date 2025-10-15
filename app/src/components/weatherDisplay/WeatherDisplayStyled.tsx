@@ -28,24 +28,37 @@ export const Container = styled.div`
   }
 `;
 
-/** Top-left logo branding */
-export const Logo = styled.div`
+/** Header container for logo and admin menu */
+export const Header = styled.div`
   position: absolute;
   top: calc(var(--spacing-unit) * 3);
   left: calc(var(--spacing-unit) * 3);
+  right: calc(var(--spacing-unit) * 3);
   display: flex;
   align-items: center;
-  gap: calc(var(--spacing-unit) * 1.5);
+  justify-content: space-between;
 
   @media (min-width: 768px) {
     top: calc(var(--spacing-unit) * 4);
     left: calc(var(--spacing-unit) * 4);
-    gap: calc(var(--spacing-unit) * 2);
+    right: calc(var(--spacing-unit) * 4);
   }
 
   @media (min-width: 1366px) {
     top: calc(var(--spacing-unit) * 6);
     left: calc(var(--spacing-unit) * 8);
+    right: calc(var(--spacing-unit) * 8);
+  }
+`;
+
+/** Top-left logo branding */
+export const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 1.5);
+
+  @media (min-width: 768px) {
+    gap: calc(var(--spacing-unit) * 2);
   }
 `;
 

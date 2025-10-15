@@ -5,17 +5,20 @@ interface TemperatureDisplayProps {
   feelsLike: number;
   condition: string;
   icon: string;
+  units?: 'metric' | 'imperial';
 }
 
-export function TemperatureDisplay({ temperature, feelsLike, condition, icon }: TemperatureDisplayProps) {
+export function TemperatureDisplay({ temperature, feelsLike, condition, icon, units = 'imperial' }: TemperatureDisplayProps) {
+  const tempUnit = units === 'metric' ? 'C' : 'F';
+
   return (
     <S.Container>
       <S.TemperatureWrapper>
         <S.TemperatureSection>
           <S.TempValue>{Math.round(temperature)}°</S.TempValue>
-          <S.TempUnit>F</S.TempUnit>
+          <S.TempUnit>{tempUnit}</S.TempUnit>
         </S.TemperatureSection>
-        <S.FeelsLikeText>Feels like {Math.round(feelsLike)}°F</S.FeelsLikeText>
+        <S.FeelsLikeText>Feels like {Math.round(feelsLike)}°{tempUnit}</S.FeelsLikeText>
       </S.TemperatureWrapper>
       <S.ConditionSection>
         <S.WeatherIcon src={`https:${icon}`} alt={condition} />

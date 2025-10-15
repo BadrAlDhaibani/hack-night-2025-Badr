@@ -25,6 +25,8 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
+  const [location, setLocation] = useState<string>(import.meta.env.VITE_CITY || 'Halifax')
+  const [units, setUnits] = useState<'metric' | 'imperial'>('imperial')
 
   const getBackgroundColor = (weather: WeatherData | null) => {
     if (!weather) return '#1a1a1a'
@@ -58,7 +60,7 @@ function App() {
     const loadData = async () => {
       try {
         setLoading(true)
-        const weatherData = await fetchWeather()
+        const weatherData = await fetchWeather(location, units)
         setWeather(weatherData)
 
         const outfitData = await getOutfitRecommendation(weatherData)
@@ -78,7 +80,12 @@ function App() {
     // Refresh every 5 minutes
     const interval = setInterval(loadData, 5 * 60 * 1000)
     return () => clearInterval(interval)
-  }, [])
+  }, [location, units])
+
+  const handleSettingsChange = (newLocation: string, newUnits: 'metric' | 'imperial') => {
+    setLocation(newLocation)
+    setUnits(newUnits)
+  }
 
   const backgroundColor = getBackgroundColor(weather)
 
@@ -87,7 +94,14 @@ function App() {
       {loading && <LoadingScreen />}
       {error && <ErrorScreen message={error} />}
       {!loading && !error && weather && outfit && (
-        <WeatherDisplay weather={weather} outfit={outfit} lastUpdate={lastUpdate} />
+        <WeatherDisplay
+          weather={weather}
+          outfit={outfit}
+          lastUpdate={lastUpdate}
+          currentLocation={location}
+          currentUnits={units}
+          onSettingsChange={handleSettingsChange}
+        />
       )}
     </AppContainer>
   )
