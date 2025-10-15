@@ -1,8 +1,8 @@
-# WeatherFit App - Project Structure Documentation
+# WthrFit App - Project Structure Documentation
 
 ## Overview
 
-WeatherFit is a responsive weather application that provides real-time weather information and AI-powered outfit recommendations. The app uses **styled-components** for styling with custom CSS design tokens based on Tailwind's design system.
+WthrFit is a responsive weather application that provides real-time weather information and AI-powered outfit recommendations. The app uses **styled-components** for styling with custom CSS design tokens based on Tailwind's design system.
 
 ## Technology Stack
 
@@ -265,8 +265,8 @@ Main container orchestrating all weather components with logo and footer.
 **Styled Components:**
 - `Container` - Full-screen flex layout
 - `Logo` - Top-left branding
-- `LogoIcon` - WeatherFit icon
-- `LogoText` - "WeatherFit" text
+- `LogoIcon` - WthrFit icon
+- `LogoText` - "WthrFit" text
 - `Footer` - Bottom timestamp
 
 ## Services

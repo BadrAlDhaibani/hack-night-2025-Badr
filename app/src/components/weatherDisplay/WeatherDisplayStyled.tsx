@@ -49,7 +49,7 @@ export const Logo = styled.div`
   }
 `;
 
-/** WeatherFit logo icon */
+/** WthrFit logo icon */
 export const LogoIcon = styled.img`
   width: var(--spacing-5);   /* 20px */
   height: var(--spacing-5);
@@ -61,7 +61,7 @@ export const LogoIcon = styled.img`
   }
 `;
 
-/** WeatherFit logo text */
+/** WthrFit logo text */
 export const LogoText = styled.span`
   font-size: var(--font-size-sm);
   font-weight: 600;

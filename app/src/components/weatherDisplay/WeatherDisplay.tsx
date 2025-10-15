@@ -24,8 +24,8 @@ export function WeatherDisplay({ weather, outfit, lastUpdate }: WeatherDisplayPr
   return (
     <S.Container>
       <S.Logo>
-        <S.LogoIcon src={humidityIcon} alt="WeatherFit" />
-        <S.LogoText>WeatherFit</S.LogoText>
+        <S.LogoIcon src={humidityIcon} alt="WthrFit" />
+        <S.LogoText>WthrFit</S.LogoText>
       </S.Logo>
       <LocationHeader location={weather.location} localTime={weather.localTime} />
       <TemperatureDisplay
