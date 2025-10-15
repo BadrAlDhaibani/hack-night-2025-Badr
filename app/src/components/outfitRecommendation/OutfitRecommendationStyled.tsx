@@ -8,9 +8,10 @@ import styled from 'styled-components';
 /** Glassmorphic container with backdrop blur effect */
 export const Container = styled.div`
   padding: calc(var(--spacing-unit) * 4);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(var(--spacing-2-5));  /* 10px */
-  border-radius: var(--spacing-4);  /* 16px */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.75rem;
   max-width: 56.25rem;  /* 900px */
   margin-left: auto;
   margin-right: auto;

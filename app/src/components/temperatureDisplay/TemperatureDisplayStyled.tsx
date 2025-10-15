@@ -116,7 +116,6 @@ export const ConditionSection = styled.div`
 export const WeatherIcon = styled.img`
   width: var(--spacing-16);   /* 64px - Close to 70px */
   height: var(--spacing-16);
-  filter: drop-shadow(var(--spacing-0-5) var(--spacing-0-5) var(--spacing-2) rgba(0, 0, 0, 0.3));
 
   @media (min-width: 768px) {
     width: var(--spacing-20);   /* 80px - Close to 85px */

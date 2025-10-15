@@ -41,6 +41,7 @@ export function WeatherDisplay({
         </S.Logo>
         <AdminMenu
           currentLocation={currentLocation}
+          currentLocationName={weather.location}
           currentUnits={currentUnits}
           onApply={onSettingsChange}
         />

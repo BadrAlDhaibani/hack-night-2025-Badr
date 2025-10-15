@@ -36,13 +36,18 @@ export const MenuButton = styled.button`
 export const MenuIcon = styled.span`
   font-size: 1.25rem;
   color: white;
-  text-shadow: 0.0625em 0.0625em 0.25em rgba(0, 0, 0, 0.3);
   user-select: none;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease;
   line-height: 1;
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: white;
+  }
 `;
 
 export const Dropdown = styled.div`
@@ -55,7 +60,6 @@ export const Dropdown = styled.div`
   border-radius: 0.75rem;
   padding: 1.25rem;
   min-width: 16rem;
-  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
   animation: slideDown 0.2s ease-out;
 
   @keyframes slideDown {

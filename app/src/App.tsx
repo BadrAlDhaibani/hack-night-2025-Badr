@@ -25,8 +25,14 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
-  const [location, setLocation] = useState<string>(import.meta.env.VITE_CITY || 'Halifax')
-  const [units, setUnits] = useState<'metric' | 'imperial'>('imperial')
+  const [location, setLocation] = useState<string>(() => {
+    return localStorage.getItem('savedLocation') || import.meta.env.VITE_CITY || 'Halifax'
+  })
+  const [units, setUnits] = useState<'metric' | 'imperial'>(() => {
+    const savedUnits = localStorage.getItem('savedUnits')
+    return (savedUnits === 'metric' || savedUnits === 'imperial') ? savedUnits : 'imperial'
+  })
+  const [locationDetected, setLocationDetected] = useState(false)
 
   const getBackgroundColor = (weather: WeatherData | null) => {
     if (!weather) return '#1a1a1a'
@@ -56,7 +62,44 @@ function App() {
     }
   }
 
+  // Auto-detect location on first visit
   useEffect(() => {
+    const hasVisited = localStorage.getItem('hasVisited')
+
+    if (!hasVisited && !locationDetected) {
+      if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords
+            // Use coordinates as location string - WeatherAPI supports lat,lon format
+            const coordLocation = `${latitude.toFixed(4)},${longitude.toFixed(4)}`
+            setLocation(coordLocation)
+            localStorage.setItem('savedLocation', coordLocation)
+            setLocationDetected(true)
+            localStorage.setItem('hasVisited', 'true')
+          },
+          (error) => {
+            // If user denies or error occurs, use default location
+            console.warn('Geolocation error:', error.message)
+            setLocationDetected(true)
+            localStorage.setItem('hasVisited', 'true')
+          }
+        )
+      } else {
+        // Geolocation not supported, use default location
+        setLocationDetected(true)
+        localStorage.setItem('hasVisited', 'true')
+      }
+    }
+  }, [locationDetected])
+
+  useEffect(() => {
+    // Don't load data until location detection is complete on first visit
+    const hasVisited = localStorage.getItem('hasVisited')
+    if (!hasVisited && !locationDetected) {
+      return
+    }
+
     const loadData = async () => {
       try {
         setLoading(true)
@@ -80,11 +123,13 @@ function App() {
     // Refresh every 5 minutes
     const interval = setInterval(loadData, 5 * 60 * 1000)
     return () => clearInterval(interval)
-  }, [location, units])
+  }, [location, units, locationDetected])
 
   const handleSettingsChange = (newLocation: string, newUnits: 'metric' | 'imperial') => {
     setLocation(newLocation)
     setUnits(newUnits)
+    localStorage.setItem('savedLocation', newLocation)
+    localStorage.setItem('savedUnits', newUnits)
   }
 
   const backgroundColor = getBackgroundColor(weather)
