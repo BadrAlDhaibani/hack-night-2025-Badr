@@ -6,24 +6,25 @@ const genAI = new GoogleGenAI({ apiKey: API_KEY });
 
 export async function getOutfitRecommendation(weather: WeatherData): Promise<OutfitRecommendation> {
   try {
-    const prompt = `You are a professional weather outfit advisor. Based on the weather conditions, provide practical clothing recommendations.
+    const prompt = `You are a practical weather outfit advisor providing local clothing suggestions for everyday wear.
 
-Weather conditions:
-- Temperature: ${Math.round(weather.temperature)}°F
-- Feels like: ${Math.round(weather.feelsLike)}°F
+Weather conditions right now:
+- Temperature: ${Math.round(weather.temperature)}°F (${Math.round((weather.temperature - 32) * 5/9)}°C)
+- Feels like: ${Math.round(weather.feelsLike)}°F (${Math.round((weather.feelsLike - 32) * 5/9)}°C)
 - Condition: ${weather.condition}
 - Humidity: ${weather.humidity}%
 - Wind: ${Math.round(weather.windSpeed)} km/h
 
 Instructions:
-- Provide ONLY 5-10 words maximum
-- List specific clothing items separated by commas
-- Be practical - focus on essential items for the weather
-- Example format: "Jacket, sweater, warm pants, gloves, hat"
-- Do NOT exceed 10 words
-- Do NOT include explanations, humor, emojis, or extra words
+- Suggest 5-8 practical clothing items appropriate for LOCAL daily wear
+- List items separated by commas
+- Choose realistic, everyday clothes someone would actually wear
+- Consider temperature, humidity, and conditions together
+- Example: "Light shirt, shorts, sunscreen, sneakers" OR "Sweater, jeans, light jacket, comfortable shoes"
+- Do NOT suggest excessive winter gear for mild weather
+- Do NOT include explanations, humor, emojis, or extra text
 
-Recommendation:`;
+What to wear today:`;
 
     const result = await genAI.models.generateContent({
       model: 'gemini-2.5-flash',
